@@ -16,7 +16,6 @@ func main() {
 		ipv4_regex := `\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b`
 		ipv4 := regexp.MustCompile(ipv4_regex)
 		ipv6 := regexp.MustCompile(ipv6_regex)
-		if ipv4.MatchString(data) {fmt.Println("IP found")}
 		censoredData := ipv4.ReplaceAllLiteralString(data, "[IP REDACTED]")
 		censoredData = ipv6.ReplaceAllLiteralString(censoredData, "[IP REDACTED]")
 		fmt.Println(censoredData)
